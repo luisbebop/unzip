@@ -841,7 +841,7 @@ typedef struct end_central_dir_record
 
 //input file variables
 #define  uinbufsize    1024L   /* input buffer size */
-Byte     inbufUnzip[uinbufsize * 8];
+Byte     inbufUnzip[uinbufsize * 32];
 Bool	 zipeof;
 Uint32	 csize;
 int      cmethod;
@@ -854,7 +854,7 @@ FILE	*zipfd;
 local_file_header lrec;
 
 //output stream variables
-Byte     outbuf[uinbufsize * 8];   /* for rle look-back */
+Byte     outbuf[uinbufsize * 32];   /* for rle look-back */
 Uint32   outpos;         /* absolute position in outfile */
 int      outcnt;
 FILE	*outfd;
@@ -1156,7 +1156,7 @@ void OutByte(int c)
 int main() {
 	int ret = 0;
 	
-	ret = UnzipFile("test2.zip");
+	ret = UnzipFile("test4.zip");
 	printf("UnzipFile ret=%d\n", ret);
 	
 	return 0;
